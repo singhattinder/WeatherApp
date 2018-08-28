@@ -11,6 +11,8 @@ Check the option "Unknown sources".
 Tap OK on the prompt message.
 Select "Trust".
 
+Min Apk level 23 or Android 6.0 required.
+
 URL1: https://bit.ly/2BSD1TB 
 
 URL2: http://shorturl.at/CFH24
