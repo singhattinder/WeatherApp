@@ -24,7 +24,7 @@ This App demos following Features:
 6. `Location Services`
 7. `Custom Text and Edit Views`
 8. `Async Task`
-9. `Intent Service`
+9. `Intent Services`
 10. `Run time Permissions`
 11. `Fragment and DialogFragment`
 
