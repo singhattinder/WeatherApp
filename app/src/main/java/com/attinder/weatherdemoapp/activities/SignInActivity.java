@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import com.attinder.weatherdemoapp.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -56,7 +55,14 @@ public class SignInActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
 
         // Enable the Up button
-        ab.setDisplayHomeAsUpEnabled(true);
+        try
+        {
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException ex) {
+            Log.d("google", ex.toString());
+        }
+
 
 
         // Build a GoogleSignInClient with the options specified by gso.
@@ -69,7 +75,6 @@ public class SignInActivity extends AppCompatActivity {
                     case R.id.sign_in_button:
                         signIn();
                         break;
-
                 }
             }
         });
@@ -79,7 +84,6 @@ public class SignInActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
     }
 
 
@@ -90,8 +94,6 @@ public class SignInActivity extends AppCompatActivity {
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
-
     }
 
 
@@ -111,14 +113,13 @@ public class SignInActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("google", "Google sign in failed", e);
+                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
                 // ...
             }
         }}
 
 
-
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d("google", "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -127,8 +128,8 @@ public class SignInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("google", "signInWithCredential:success");
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
 
 

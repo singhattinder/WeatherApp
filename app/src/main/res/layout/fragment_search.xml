@@ -14,7 +14,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:id="@+id/et_search"
-        android:hint="Search City"
+        android:hint="@string/search_city"
         android:textColor="@color/white"
         android:inputType="text"
         android:textCursorDrawable="@null"

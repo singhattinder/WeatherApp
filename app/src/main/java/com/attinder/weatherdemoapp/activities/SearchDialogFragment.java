@@ -1,25 +1,18 @@
 package com.attinder.weatherdemoapp.activities;
 
 
-import android.content.Context;
+
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -79,6 +72,7 @@ public class SearchDialogFragment extends android.support.v4.app.DialogFragment 
                     String search = etSearch.getText().toString();
                     Intent intent =  new Intent(getActivity(), MainActivity.class);
                     intent.putExtra("search",search);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     return true;
                 }

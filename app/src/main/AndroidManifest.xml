@@ -16,7 +16,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Custom">
+        android:theme="@style/Theme.AppCompat.Custom"
+        >
         <activity
             android:name=".activities.MainActivity"
             >
@@ -33,12 +34,12 @@
         <service
             android:name="services.FetchAddressIntentService"
             android:exported="false" />
-        <service android:name="services.FireBaseDatabaseService"></service>
+        <service android:name="services.FireBaseDatabaseService"/>
 
 
         <activity android:name=".activities.FavourtieLocationsActivity"
             android:parentActivityName=".activities.MainActivity"
-            ></activity>
+            />
     </application>
 
 </manifest>

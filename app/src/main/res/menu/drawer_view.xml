@@ -7,18 +7,18 @@
         <item
             android:id="@+id/sign_in_menu"
             android:icon="@drawable/ic_person"
-            android:title="Sign In"
+            android:title="@string/sign_in"
             />
 
         <item
             android:id="@+id/sign_out_menu"
             android:icon="@drawable/ic_person"
-            android:title="Sign out"
+            android:title="@string/sign_out"
             />
         <item
             android:id="@+id/favourite_cities"
             android:icon="@drawable/ic_person"
-            android:title="Favourites"
+            android:title="@string/favourites"
             />
 
     </group>

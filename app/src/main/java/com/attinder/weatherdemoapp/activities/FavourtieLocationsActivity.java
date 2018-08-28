@@ -15,12 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
-
-
 import com.attinder.weatherdemoapp.R;
 import com.attinder.weatherdemoapp.adapters.ListAdapter;
-
 import com.attinder.weatherdemoapp.listeners.RecyclerItemClickListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -31,9 +27,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.HashSet;
-import java.util.Set;
+
 
 
 public class FavourtieLocationsActivity extends AppCompatActivity {
@@ -47,24 +42,16 @@ public class FavourtieLocationsActivity extends AppCompatActivity {
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourtie_locations);
 
-
-
-
         mRecyclerView =  findViewById(R.id.my_recycler_view);
         backGroundFrameFavourtie = findViewById(R.id.back_ground_favourite);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
+
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -75,7 +62,7 @@ public class FavourtieLocationsActivity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
 
-        // Enable the Up button
+
         ab.setDisplayHomeAsUpEnabled(true);
 
         RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
@@ -90,11 +77,7 @@ public class FavourtieLocationsActivity extends AppCompatActivity {
             public void onResourceReady(@NonNull Drawable resource, @Nullable com.bumptech.glide.request.transition.Transition<? super Drawable> transition) {
                 backGroundFrameFavourtie.setBackground(resource);
             }
-
-
         });
-
-
 
 
         final FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -137,22 +120,17 @@ public class FavourtieLocationsActivity extends AppCompatActivity {
                     @Override public void onItemClick(View view, int position) {
                         Intent intent =  new Intent(FavourtieLocationsActivity.this, MainActivity.class);
                         intent.putExtra("search", array[position]);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
 
                     @Override public void onLongItemClick(View view, int position) {
-                        // do whatever
+
                     }
                 })
         );
 
-
-
-
         }
-
-
-
 
     }
 

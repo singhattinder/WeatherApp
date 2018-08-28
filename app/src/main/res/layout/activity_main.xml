@@ -181,28 +181,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Pressure" />
+                        android:text="@string/pressure" />
 
                     <TextView
                         android:id="@+id/humLab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Humidity" />
+                        android:text="@string/humidity" />
 
                     <TextView
                         android:id="@+id/sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Sunrise" />
+                        android:text="@string/sunrise" />
 
                     <TextView
                         android:id="@+id/sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Sunset" />
+                        android:text="@string/sunset" />
 
 
 
@@ -275,27 +275,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Wind Speed" />
+                        android:text="@string/wind_speed" />
 
                     <TextView
                         android:id="@+id/windDegrees"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Wind Deg" />
+                        android:text="@string/wind_deg" />
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Temp Max" />
+                        android:text="@string/temp_max" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:text="Temp Min" />
+                        android:text="@string/temp_min" />
 
 
 

@@ -4,42 +4,32 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
-
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Transition;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -47,24 +37,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
-
 import com.attinder.weatherdemoapp.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
 import org.json.JSONException;
-
-
 import com.attinder.weatherdemoapp.models.Weather;
 import services.FetchAddressIntentService;
 import services.FireBaseDatabaseService;
@@ -196,9 +178,6 @@ public class MainActivity extends AppCompatActivity
             city = "Manhattan";
         }
 
-
-
-
         mResultReceiver = new AddressResultReceiver(new Handler());
 
         cityText =  findViewById(R.id.cityText);
@@ -252,6 +231,10 @@ public class MainActivity extends AppCompatActivity
          signInMenu = menu.findItem(R.id.sign_in_menu);
          signOutMenu = menu.findItem(R.id.sign_out_menu);
         favouriteCity = menu.findItem(R.id.favourite_cities);
+
+
+
+
 
 
 
@@ -320,25 +303,14 @@ public class MainActivity extends AppCompatActivity
 
         Typeface typefaceTemp = Typeface.createFromAsset(getAssets(), "fonts/SFLight.ttf");
         temp.setTypeface(typefaceTemp);
+        cityText.setTypeface(typefaceTemp);
+        condDescr.setTypeface(typefaceTemp);
 
         Typeface typefaceWindSpeed = Typeface.createFromAsset(getAssets(), "fonts/SFBold.ttf");
         windSpeed.setTypeface(typefaceWindSpeed);
-
-        Typeface typefacePress = Typeface.createFromAsset(getAssets(), "fonts/SFBold.ttf");
-        press.setTypeface(typefacePress);
-
-        Typeface typefaceHum = Typeface.createFromAsset(getAssets(), "fonts/SFBold.ttf");
-        hum.setTypeface(typefaceHum);
-
-        Typeface typefaceWindDeg = Typeface.createFromAsset(getAssets(), "fonts/SFBold.ttf");
-        windDeg.setTypeface(typefaceWindDeg);
-
-        Typeface typefaceCityText = Typeface.createFromAsset(getAssets(), "fonts/SFLight.ttf");
-        cityText.setTypeface(typefaceCityText);
-
-        Typeface typefaceCondDesc = Typeface.createFromAsset(getAssets(), "fonts/SFLight.ttf");
-        condDescr.setTypeface(typefaceCondDesc);
-
+        press.setTypeface(typefaceWindSpeed);
+        hum.setTypeface(typefaceWindSpeed);
+        windDeg.setTypeface(typefaceWindSpeed);
 
 
 
@@ -364,6 +336,18 @@ public class MainActivity extends AppCompatActivity
                 intent.putExtra("cityname", city);
                 startService(intent);
 
+                Snackbar snackbar = Snackbar.make(mDrawerLayout, "Added", Snackbar.LENGTH_LONG);
+                snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                View snackbarView = snackbar.getView();
+
+                int snackbarTextId = android.support.design.R.id.snackbar_text;
+                TextView textView = snackbarView.findViewById(snackbarTextId);
+                textView.setBackgroundColor(getResources().getColor(R.color.snackbar_backgroud));
+                textView.setTextColor(getResources().getColor(R.color.snackbar_text));
+
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.snackbar_backgroud));
+                snackbar.show();
+
             }
         });
 
@@ -371,7 +355,6 @@ public class MainActivity extends AppCompatActivity
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
@@ -572,22 +555,22 @@ public class MainActivity extends AppCompatActivity
 
                     builder = new AlertDialog.Builder(MainActivity.this, R.style.AlertDialogStyle);
 
+
                 builder.setTitle("City not found")
                         .setMessage("Please try again beacuse there was some error in finding this city")
+                        .setCancelable(false)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+
                                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                             }
+
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
-
-
             }
-
-
-
         }
     }
 
