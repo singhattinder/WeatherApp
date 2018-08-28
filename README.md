@@ -1,7 +1,8 @@
 **`Weather App`**
 
+APK is available below:
 
-URL: http://shorturl.at/CFH24
+URL1: http://shorturl.at/CFH24
 
 URL2: https://bit.ly/2BSD1TB
 
