@@ -27,3 +27,6 @@ This App demos following Features:
 9. `Intent Service`
 10. `Run time Permissions`
 11. `Fragment and DialogFragment`
+
+User can look up a weather of a certain city by its name. If User logs in with his google account
+then User can add favourite cities to Firebase Realtime Database. Data is not being stored locally.
