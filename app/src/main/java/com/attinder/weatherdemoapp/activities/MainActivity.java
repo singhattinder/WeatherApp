@@ -82,23 +82,17 @@ public class MainActivity extends AppCompatActivity
     private MenuItem favouriteCity;
     private ImageView locationButton;
     private ImageButton search;
-    private FrameLayout frameLayout;
     private FrameLayout backGroundFrame;
     private LinearLayout navigationHeaderContainer;
     private FirebaseAuth mAuth;
     private ImageView likeImageView;
-
     private TextView hum;
     private FusedLocationProviderClient mFusedLocationClient;
-
-
-    private int REQUEST_LOCATION = 1;
-
     protected Location mLastLocation;
     private AddressResultReceiver mResultReceiver;
     private  String city;
 
-
+    private int REQUEST_LOCATION = 1;
 
 
     public final class Constants {
@@ -113,7 +107,6 @@ public class MainActivity extends AppCompatActivity
                 ".LOCATION_DATA_EXTRA";
 
     }
-
 
 
 
@@ -159,7 +152,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
@@ -194,24 +187,16 @@ public class MainActivity extends AppCompatActivity
         search = findViewById(R.id.search);
         backGroundFrame = findViewById(R.id.content_frame);
         likeImageView = findViewById(R.id.like);
-
-
-
         sunsetTime = findViewById(R.id.sunsetTime);
         sunriseTime = findViewById(R.id.sunriseTime);
         mDrawerLayout = findViewById(R.id.drawer_layout);
         locationButton = findViewById(R.id.fab);
 
 
+        //getting instance of Firebase
         mAuth = FirebaseAuth.getInstance();
 
-
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-
-
-
-
 
 
 
@@ -231,10 +216,6 @@ public class MainActivity extends AppCompatActivity
          signInMenu = menu.findItem(R.id.sign_in_menu);
          signOutMenu = menu.findItem(R.id.sign_out_menu);
         favouriteCity = menu.findItem(R.id.favourite_cities);
-
-
-
-
 
 
 
@@ -301,6 +282,7 @@ public class MainActivity extends AppCompatActivity
                 });
 
 
+        //Setting font for Main activity
         Typeface typefaceTemp = Typeface.createFromAsset(getAssets(), "fonts/SFLight.ttf");
         temp.setTypeface(typefaceTemp);
         cityText.setTypeface(typefaceTemp);
@@ -607,6 +589,9 @@ public class MainActivity extends AppCompatActivity
         super.setFinishOnTouchOutside(finish);
         Toast.makeText(this, "gdg", Toast.LENGTH_SHORT).show();
     }
+
+
+    //Class receiving result from  FetchAddressIntentService
 
     class AddressResultReceiver extends ResultReceiver {
         public AddressResultReceiver(Handler handler) {
