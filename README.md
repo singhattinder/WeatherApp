@@ -11,9 +11,9 @@ Check the option "Unknown sources".
 Tap OK on the prompt message.
 Select "Trust".
 
-URL1: http://shorturl.at/CFH24
+URL1: https://bit.ly/2BSD1TB 
 
-URL2: https://bit.ly/2BSD1TB
+URL2: http://shorturl.at/CFH24
 
 This App demos following Features:
 1. `FireBase Authentication`
