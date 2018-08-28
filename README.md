@@ -1,8 +1,18 @@
-MovieDB app
-CS5610
+Weather App
 
-URL: https://moviedb-summer1.herokuapp.com/home
 
-To run on local machine:
-1. add env variable REACT_APP_DEVELOPMENT_ENV = DEVELOPMENT to your IDE env variables for movie-db-client 
-2. In the server repo movie-db-server ENVIRONMENT = DEVELOPMENT to IDE env variables
+URL: http://shorturl.at/CFH24
+URL2: https://bit.ly/2BSD1TB
+
+This App demos following Features:
+1. FireBase Authentication
+2. FireBase Realtime Database
+3. RecyclerView
+4. OpenWeather API
+5. Glide
+6. Location Services
+7. Custom Text and Edit Views
+8. Async Task
+9. Intent Service
+10. Run time Permissions
+11. Fragment and DialogFragment
