@@ -11,6 +11,11 @@ Check the option "Unknown sources".
 Tap OK on the prompt message.
 Select "Trust".
 
+<<<<<<< HEAD
+=======
+Min Apk level 23 or Android 6.0 required.
+
+>>>>>>> a698afbc045fd11555038f44110616fca22ad911
 URL: http://shorturl.at/CFH24
 
 This App demos following Features:
@@ -22,7 +27,7 @@ This App demos following Features:
 6. `Location Services`
 7. `Custom Text and Edit Views`
 8. `Async Task`
-9. `Intent Service`
+9. `Intent Services`
 10. `Run time Permissions`
 11. `Fragment and DialogFragment`
 
