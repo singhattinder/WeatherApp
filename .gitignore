@@ -36,6 +36,9 @@ proguard/
 # Log Files
 *.log
 
+#All json file
+*.json
+
 # Android Studio Navigation editor temp files
 .navigation/
 
@@ -48,3 +51,4 @@ android.keystore
 gradle.properties
 gradlew
 gradlew.bat
+
