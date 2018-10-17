@@ -16,6 +16,8 @@ Min Apk level 23 or Android 6.0 required.
 
 URL: http://shorturl.at/CFH24
 
+Or /app/release/app-release.apk
+
 This App demos following Features:
 1. `FireBase Authentication`
 2. `FireBase Realtime Database`
