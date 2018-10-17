@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/sign_in_menu"
+            android:icon="@drawable/ic_person"
+            android:title="@string/sign_in"
+            />
+
+        <item
+            android:id="@+id/sign_out_menu"
+            android:icon="@drawable/ic_person"
+            android:title="@string/sign_out"
+            />
+        <item
+            android:id="@+id/favourite_cities"
+            android:icon="@drawable/ic_person"
+            android:title="@string/favourites"
+            />
+
+    </group>
+
+
+
+</menu>

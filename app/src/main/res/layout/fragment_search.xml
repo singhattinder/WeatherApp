@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fragment_rounded"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:tag="dialog_fragment"
+    android:id="@+id/dialog_fragment">
+
+
+    <com.attinder.weatherdemoapp.views.CustomEditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/et_search"
+        android:hint="@string/search_city"
+        android:textColor="@color/white"
+        android:inputType="text"
+        android:textCursorDrawable="@null"
+        android:backgroundTint="@color/colorTransparent"
+        android:maxLines="1"/>
+</FrameLayout>
