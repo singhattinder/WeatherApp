@@ -46,3 +46,5 @@ captures/
 *.iml 
 android.keystore
 gradle.properties
+gradlew
+gradlew.bat
