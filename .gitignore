@@ -45,3 +45,4 @@ captures/
 # Intellij
 *.iml 
 android.keystore
+gradle.properties
