@@ -13,9 +13,7 @@ Select "Trust".
 
 Min Apk level 23 or Android 6.0 required.
 
-URL1: https://bit.ly/2BSD1TB 
-
-URL2: http://shorturl.at/CFH24
+URL: http://shorturl.at/CFH24
 
 This App demos following Features:
 1. `FireBase Authentication`
